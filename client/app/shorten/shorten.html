@@ -1,12 +1,13 @@
 <div id='container'>
 
 <h1>Shorten View</h1>
+<a href="#/links">View Links --> </a>
 <form ng-submit="addLink()">
-<input ng-model="link.url" placeholder="Add Url"/>
-<button type="submit">Submit</button>
-<div ng-show="loading">
-  <img src="assets/spiffygif_46x46.gif">
-</div>
+  <input ng-model="link.url" placeholder="Add Url" type="url"/>
+  <button type="submit">Submit</button>
+  <div ng-show="loading">
+    <img src="assets/spiffygif_46x46.gif">
+  </div>
 </form>
 
 </div>
