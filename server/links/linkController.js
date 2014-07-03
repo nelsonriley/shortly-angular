@@ -1,4 +1,4 @@
-var Link    = require('./linkModel.js'),
+ var Link    = require('./linkModel.js'),
     Q       = require('q'),
     util    = require('../config/utils.js');
 
