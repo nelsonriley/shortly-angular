@@ -1,12 +1,13 @@
 angular.module('shortly.shorten', [])
 
 .controller('ShortenController', function ($scope, $location, Links) {
-  console.log("ShortenController");
-  $scope.link = { link: 'http://www.somelink.com' };
+  $scope.link = {};
+  $scope.loading = false;
   $scope.addLink = function() {
+    $scope.loading = true;
     Links.post($scope.link).then(function(response) {
-      console.log("POSTING LINK ", response);
-      $scope.link = response.data;
+      console.log("LINK ADDED ", response);
+      $scope.loading = false;
     });
   };
 });
