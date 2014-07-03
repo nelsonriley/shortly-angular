@@ -1,8 +1,9 @@
 <div id='links'>
   <h1> Links </h1>
   <a href="#/shorten">Add a link --> </a>
+  <input type="text" ng-model="search">
   <ul ng-contoller='LinksController'>
-    <li ng-repeat="link in data.links | orderBy: '-visits'">
+    <li ng-repeat="link in data.links | orderBy: '-visits' | filter: {title: search} ">
       <div><a href="{{ link.base_url+'/api/links/'+link.code }}" data-id="{{ link._id }}">{{ link.title }}</a></div>
       <div>{{link.visits}}</div>
     </li>

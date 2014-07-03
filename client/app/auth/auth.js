@@ -23,13 +23,18 @@ angular.module('shortly.auth', [])
   };
 
   $scope.signup = function () {
-    Auth.signup($scope.user)
-      .then(function (token) {
-        $window.localStorage.setItem('com.shortly', token);
-        $location.path('/links');
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
+    if (validform) {
+      Auth.signup($scope.user)
+        .then(function (token) {
+          $window.localStorage.setItem('com.shortly', token);
+          $location.path('/links');
+          $scope.form.valid = true;
+        })
+        .catch(function (error) {
+          console.error(error);
+        });
+    } else {
+      $scope.form.valid = false;
+    }
   };
 });
